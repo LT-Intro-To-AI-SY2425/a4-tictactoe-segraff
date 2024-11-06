@@ -43,7 +43,7 @@ class TTTBoard:
             return True
         return False
 
-    def clear(self):
+    def clear(self) -> None:
         self.board = ['*'] * 9
     pass
 
