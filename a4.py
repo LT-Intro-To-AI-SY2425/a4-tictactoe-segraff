@@ -10,7 +10,7 @@ class TTTBoard:
         board - a list of '*'s, 'X's & 'O's. 'X's represent moves by player 'X', 'O's
             represent moves by player 'O' and '*'s are spots no one has yet played on
     """
-    def __init__(self):
+    def __init__(self) -> None:
         self.board = ['*'] * 9
 
     def __str__(self):
@@ -38,8 +38,10 @@ class TTTBoard:
         
         return any(all(self.board[pos] == player for pos in combo) for combo in winning_combinations)
 
-    def game_over(self):
-        return self.has_won('X') or self.has_won('O') or '*' not in self.board
+    def game_over(self) -> bool:
+        if self.has_won('X') or self.has_won('O') or '*' not in self.board:
+            return True
+        return False
 
     def clear(self):
         self.board = ['*'] * 9
